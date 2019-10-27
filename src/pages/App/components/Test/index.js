@@ -1,7 +1,6 @@
 import { Loading } from "elements";
 import * as faceapi from "face-api.js";
 import React, { Component } from "react";
-import SpeechRecognition from "react-speech-recognition";
 import Webcam from "react-webcam";
 import { Container, Col, Row, Button, Input, Badge, Form, FormGroup, Label } from "reactstrap";
 import { API } from "services";

@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { validateFormGroup, getRawValue } from "utils/form";
-import logoQuero from "res/img/quero.jpg";
-import { Container, Col, Row, Button, Form, FormGroup, Label, Input, FormFeedback } from 'reactstrap';
+import { validateFormGroup } from "utils/form";
+import logo from "res/img/cover.png";
+import { Container, Col, Row, Button, Form, FormGroup, Label, Input, FormFeedback, Spinner } from 'reactstrap';
 import { Content, LogoImg } from './styles.js'
+
 class SignUp extends Component {
   state = {
     errors: null,
@@ -63,12 +64,12 @@ class SignUp extends Component {
             <Container fluid>
                 <Row className="justify-content-center">
                     <Col className="text-center" sm={4}>
-                        <LogoImg src={logoQuero} alt="logo-quero" />
+                      <LogoImg src={logo} alt="logo-truetest" style={{width: "500px"}} />
                     </Col>
                 </Row>
-                <Row className="mb-2 justify-content-center">
-                    <Col sm={6}>
-                        <Form onSubmit={(e)=> this.doRegister(e)}>
+                <Row className="mb-2 justify-content-center" >
+                    <Col sm={3}>
+                        <Form onSubmit={(e)=> this.doRegister(e)} style={{ background: "#fff", boxShadow: "0 2px 4px 0 rgba(0,0,0,0.16)", padding: "1.5rem" }}>
                             <FormGroup>
                                 <Label for="name">Nome</Label>
                                 <Input 
@@ -125,16 +126,19 @@ class SignUp extends Component {
                                 />
                                 { this.state.formUser.controls.password.invalid && <FormFeedback invalid>Preencha corretamente a Senha</FormFeedback>}
                             </FormGroup>
+                            <Row noGutters className="justify-content-center mb-3">
+                                <Col sm={12}>
+                                    <Button type="submit" className="ml-1 col-sm-12" color="primary">
+                                      Cadastrar
+                                    </Button>
+                                </Col>
+                            </Row>
                             <Row noGutters className="justify-content-center">
                                 <Col className="col-auto">
-                                    <Link to="/login/sign-in">
-                                        <Button type="button" className="mr-1" color="primary">
-                                            Login
-                                        </Button>
-                                    </Link>
-                                    <Button type="submit" className="ml-1" color="primary">
-                                        Cadastrar
-                                    </Button>
+                                  Já tem conta?&nbsp;
+                                  <Link to="/login/sign-in">
+                                    Faça login
+                                  </Link> 
                                 </Col>
                             </Row>
                         </Form>

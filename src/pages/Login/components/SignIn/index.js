@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { validateFormGroup, getRawValue } from "utils/form";
-import logoQuero from "res/img/quero.jpg";
-import { Container, Col, Row, Button, Form, FormGroup, Label, Input, FormFeedback } from 'reactstrap';
+import logo from "res/img/cover.png";
+import { Container, Col, Row, Button, Form, FormGroup, Label, Input, FormFeedback, Spinner } from 'reactstrap';
 import { Content, LogoImg } from './styles.js'
 import history from 'routes/history';
 import { API } from 'services'
@@ -38,6 +38,7 @@ class SignIn extends Component {
   };
 
   doLogin = (e) => {
+    this.setState({ loading: true });
     e.preventDefault();
     this.setState({ formUser: validateFormGroup(this.state.formUser) }, () => {
         if (this.state.formUser.valid) {
@@ -45,10 +46,13 @@ class SignIn extends Component {
             API.post('/auth', user)
             .then(({ data }) => {
               if (!data) {
+                alert('iasd')
+                this.setState({ loading: false });
                 return;
               }
 
               sessionStorage.setItem('userLogged', JSON.stringify(data));
+              this.setState({ loading: false });
               history.push("/app/")
             })
         }
@@ -61,12 +65,12 @@ class SignIn extends Component {
             <Container fluid>
                 <Row className="justify-content-center">
                     <Col className="text-center" sm={4}>
-                        <LogoImg src={logoQuero} alt="logo-quero" />
+                      <LogoImg src={logo} alt="logo-truetest" style={{width: "500px"}} />
                     </Col>
                 </Row>
                 <Row className="mb-2 justify-content-center">
-                    <Col sm={6}>
-                        <Form onSubmit={(e)=> this.doLogin(e)}>
+                    <Col sm={3}>
+                        <Form onSubmit={(e)=> this.doLogin(e)} style={{ background: "#fff", boxShadow: "0 2px 4px 0 rgba(0,0,0,0.16)", padding: "1.5rem" }}>
                             <FormGroup>
                                 <Label for="email">Email</Label>
                                 <Input 
@@ -95,16 +99,19 @@ class SignIn extends Component {
                                 />
                                 { this.state.formUser.controls.password.invalid && <FormFeedback invalid>Preencha corretamente a Senha</FormFeedback>}
                             </FormGroup>
+                            <Row className="justify-content-center mb-3">
+                                <Col sm={12}>
+                                    <Button type="submit" color="primary" className="col-sm-12">
+                                      { this.state.loading ? <Spinner animation="border" size="sm" /> : <span>Entrar</span> }
+                                    </Button>
+                                </Col>
+                            </Row>
                             <Row noGutters className="justify-content-center">
                                 <Col className="col-auto">
-                                    <Button type="submit" className="mr-1" color="primary">
-                                        Login
-                                    </Button>
-                                    <Link to="/login/sign-up">
-                                        <Button type="button" className="ml-1" color="primary">
-                                            Cadastrar
-                                        </Button>
-                                    </Link>
+                                  Ainda não tem cadastro?&nbsp;
+                                  <Link to="/login/sign-up">
+                                    Cadastre-se
+                                  </Link> 
                                 </Col>
                             </Row>
                         </Form>
