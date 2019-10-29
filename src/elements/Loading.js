@@ -3,24 +3,21 @@ import styled from "styled-components";
 import { WaveLoading } from "styled-spinkit";
 
 const Container = styled.div`
-  position: fixed;
-  top: 0;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
   bottom: 0;
-  right: 0;
-  left: 0;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  background-color: rgba(0, 0, 0, 0.5);
-
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
   z-index: 999999;
 `;
 
 const Icon = styled.div`
   position: relative;
-
   z-index: 5;
 
   img {
@@ -38,7 +35,6 @@ const Loading = ({ visible }) => (
             size={60}
             color={'#007bff'}
           />
-          {/* <img src={loadingIcon} alt="loading" /> */}
         </Icon>
       </Container>
     )}

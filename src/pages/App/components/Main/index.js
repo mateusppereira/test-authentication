@@ -54,12 +54,12 @@ class Main extends Component {
       <Content>
         <Container fluid>
           <Row className="justify-content-center">
-            <Col md={8}>
+            <Col md={6}>
                 <h1 style={{ color: "#fff"}}>Provas</h1>
                 { 
                     this.state.userTests.map((element, key)=>{
                         return (
-                            <Row style={{ background: "#fff", boxShadow: "0 0 5px #fff" }} key={key} noGutters className="p-2 mb-2 border align-items-center">
+                            <Row style={{ background: "#fff", boxShadow: "0 2px 4px 0 rgba(0,0,0,0.16)" }} key={key} noGutters className="p-2 mb-2 border align-items-center">
                                 <Col md="4">
                                   <TestImage src={element.test.img}/>
                                 </Col>

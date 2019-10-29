@@ -115,10 +115,10 @@ export const sort = (prop, arr, asc = true) => {
   arr.sort((a, b) => {
     let i = 0;
     while (i < len) {
-      if (a != -1) {
+      if (a !== -1) {
         a = a[prop[i]] || "";
       }
-      if (b != -1) {
+      if (b !== -1) {
         b = b[prop[i]] || "";
       }
       i++;

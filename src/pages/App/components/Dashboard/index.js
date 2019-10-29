@@ -12,14 +12,12 @@ const MarginRow = styled.div`
 
 const TableContainer = styled.div`
   width: 50%;
-  /* max-height: 400px;
-  overflow-y: auto; */
 `;
 
 const Table = styled.table`
-  width: 100%;
-  margin-bottom: 1rem;
   color: #212529;
+  margin-bottom: 1rem;
+  width: 100%;
 `;
 
 const Tr = styled.tr`
@@ -31,40 +29,41 @@ const TrHeader = styled.tr`
 `;
 
 const Td = styled.td`
+  border-top: 1px solid #dee2e6;
   padding: 12px;
   vertical-align: top;
-  border-top: 1px solid #dee2e6;
 `;
 
 const CardDeck = styled.div`
-  width: 70%;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   flex-wrap: wrap;
+  justify-content: space-between;
+  width: 70%;
 `;
 
 const Card = styled.div`
+  align-items: center;
+  border: 1px solid rgba(0, 0, 0, 0.125);
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  width: 250px;
   height: 250px;
-  border: 1px solid rgba(0, 0, 0, 0.125);
+  justify-content: flex-start;
   margin-top: 25px;
+  width: 250px;
 `;
 
 const CardHeader = styled.div`
-  width: 100%;
+  align-items: center;
   background-color: #e4e4e4;
-  padding: 15px;
+  background-color: rgba(0, 0, 0, 0.03);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  background-color: rgba(0, 0, 0, 0.03);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+  padding: 15px;
+  width: 100%;
+
   > span {
     font-size: 20px;
     text-align: center;
@@ -72,25 +71,14 @@ const CardHeader = styled.div`
 `;
 
 const CardBody = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
-  height: 100%;
-  width: 100%;
-  position: relative;
-
   background: ${props => props.bgColor};
-`;
-
-const CardFooter = styled.div`
-  position: absolute;
-  bottom: 10px;
-  width: 250px;
   display: flex;
   flex-direction: column;
+  height: 100%;
   justify-content: center;
-  align-items: center;
+  position: relative;
+  width: 100%;
 `;
 
 class Dashboard extends Component {

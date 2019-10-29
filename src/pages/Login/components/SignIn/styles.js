@@ -1,14 +1,14 @@
 import styled from 'styled-components';
 
 export const Content = styled.div`
-  min-height: 100vh;
-  width: 100vw;
+  align-items: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  min-height: 100vh;
+  width: 100vw;
 `;
 export const LogoImg = styled.img`
-  width: 100px;
   height: auto;
+  width: 100px;
 `
