@@ -54,7 +54,7 @@ class Main extends Component {
       <Content>
         <h1 style={{ fontWeight: 700, color: "#2c2e2f"}} className='mb-2'>Provas</h1>
         { 
-          [...this.state.userTests, ...this.state.userTests, ...this.state.userTests, ...this.state.userTests, ...this.state.userTests, ...this.state.userTests, ...this.state.userTests, ...this.state.userTests, ...this.state.userTests].map((element, key)=>{
+          this.state.userTests.map((element, key)=>{
             return (
               <Row
                 style={{
