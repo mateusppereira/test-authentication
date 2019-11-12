@@ -7,6 +7,7 @@ export const Content = styled.div`
   justify-content: center;
   min-height: 100vh;
   width: 100vw;
+  background: #f6f8fa;
 `;
 export const LogoImg = styled.img`
   height: auto;
